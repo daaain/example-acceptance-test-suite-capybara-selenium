@@ -4,3 +4,4 @@ gem "cucumber"
 gem "capybara"
 gem "selenium-webdriver"
 gem "rake"
+gem 'rspec'
