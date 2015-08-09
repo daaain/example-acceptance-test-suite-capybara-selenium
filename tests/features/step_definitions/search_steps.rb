@@ -1,11 +1,11 @@
 Given (/^a search field$/) do
-  visit '/'
-  page.has_selector? "input#gbqfq"
+  visit "http://www.google.com"
+  page.has_selector? "input[name=q]"
 end
 
 When(/^I submit the search for "([^"]*)"$/) do |search|
-  fill_in 'gbqfq', :with => search
-  click_button 'gbqfb'
+  fill_in 'q', :with => search
+  find(:xpath, "//button[@name='btnG']").click()
 end
 
 Then(/^waiting (\d+) seconds?/) do |seconds|

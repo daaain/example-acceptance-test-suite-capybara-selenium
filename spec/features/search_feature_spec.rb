@@ -7,15 +7,12 @@ feature "Search", %q{
 } do
   
   background do
-    visit '/'
-    page.should have_selector "input#gbqfq"
+    visit "http://www.google.com"
   end
   
   scenario "finding the answer to the question of life" do
-    fill_in 'gbqfq', :with => 'the answer to the question of life'
-    click_button 'gbqfb'
-    page.should have_selector "ol#rso"
-    page.should have_text '42'
-  end
-  
+    fill_in "q", :with => "the answer to the question of life"
+    find(:xpath, "//button[@name='btnG']").click()
+    expect(page).to have_text("42")
+  end  
 end
